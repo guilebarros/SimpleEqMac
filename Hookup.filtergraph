@@ -61,10 +61,11 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="5" x="0.48875" y="0.2631578947368421">
+  <FILTER uid="5" x="0.48875" y="0.2631578947368421" uiLastX_Normal="271"
+          uiLastY_Normal="338" uiopen_Normal="0">
     <PLUGIN name="AUAudioFilePlayer" format="AudioUnit" category="Generator"
             manufacturer="Apple" version="1.6.0" file="AudioUnit:Generators/augn,afpl,appl"
-            uniqueId="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="1817d4a1aee"
+            uniqueId="6163676e" isInstrument="0" fileTime="0" infoUpdateTime="1817f17d0ac"
             numInputs="0" numOutputs="2" isShell="0" uid="6163676e"/>
     <STATE>137.hAGaoMGcv.i0AHv.DTfAGfPBJr.CT4VXsUFWsEla0YVXiQWcxUlbTQVXzEFUzkGbkc0b0IFc4AWYWYWYxMWZu4FVU4FcoQGakQlDgAGbrAjDgU2YtIQXlAGaP..BUnwIrDSNAozSPUkV........AD..........M....................vE</STATE>
     <LAYOUT>
@@ -78,7 +79,7 @@
           uiLastY_Normal="234" uiopen_Normal="0">
     <PLUGIN name="SimpleEQMac" format="VST3" category="Fx" manufacturer="Guilherme Barros"
             version="1.0.0" file="/Users/guilhermebarros/Library/Audio/Plug-Ins/VST3/SimpleEQMac.vst3"
-            uniqueId="f8a1a325" isInstrument="0" fileTime="1817d3d5c57" infoUpdateTime="1817d4a1aef"
+            uniqueId="f8a1a325" isInstrument="0" fileTime="1817d3d5c57" infoUpdateTime="1817f17d0af"
             numInputs="2" numOutputs="2" isShell="0" uid="acf7d852"/>
     <STATE>191.VMjLgXK....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9XCLt3hKt3hKt3hKt3hYRUUSTEETIckVwTjQisVTTgkdEYjKAQjYPQSPWgUdMcjKAQjct3hdA4hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEV77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9..</STATE>
     <LAYOUT>
