@@ -201,6 +201,7 @@ void SimpleEQMacAudioProcessor::setStateInformation (const void* data, int sizeI
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    
     auto tree = juce::ValueTree::readFromData(data, sizeInBytes);
     if( tree.isValid() )
     {
