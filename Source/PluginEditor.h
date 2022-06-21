@@ -23,7 +23,9 @@ struct CustomRotarySlider : juce::Slider
 //==============================================================================
 /**
 */
-class SimpleEQMacAudioProcessorEditor  : public juce::AudioProcessorEditor
+class SimpleEQMacAudioProcessorEditor  : public juce::AudioProcessorEditor,
+juce::AudioProcessorParameter::Listener,
+juce::Timer
 {
 public:
     SimpleEQMacAudioProcessorEditor (SimpleEQMacAudioProcessor&);
@@ -32,11 +34,19 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
+    
+    void parameterValueChanged (int parameterIndex, float newValue) override;
+    
+    
+    void parameterGestureChanged (int parameterIndex, bool gestureStarting) override {};
+    void timerCallback() override;
 
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     SimpleEQMacAudioProcessor& audioProcessor;
+    
+    juce::Atomic<bool> parametersChanged { false };
     
     CustomRotarySlider peakFreqSlider,
     peakGainSlider,
