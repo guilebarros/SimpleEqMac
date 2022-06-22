@@ -9,6 +9,54 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+void LookAndFeel::drawRotarySlider(juce::Graphics & g,
+                                   int x,
+                                   int y,
+                                   int width,
+                                   int height,
+                                   float sliderPosProportional,
+                                   float rotaryStartAngle,
+                                   float rotaryEndAngle,
+                                   juce::Slider & slider)
+{
+    using namespace juce;
+    
+    auto bounds = Rectangle<float>(x,y,width,height);
+    
+    g.setColour(Colour(97u, 18u, 167u)); // cor dos knobs
+    g.fillEllipse(bounds);
+    
+    g.setColour(Colour(255u, 154u, 1u)); // contorno dos knobs
+    g.drawEllipse(bounds, 1.f);
+}
+
+void RotarySliderWithLabels::paint(juce::Graphics &g)
+{
+    using namespace juce;
+    
+    auto startAng = degreesToRadians(180.f + 45.f);
+    auto endAng = degreesToRadians(180.f - 45.f) + MathConstants<float>::twoPi;
+    
+    auto range = getRange();
+    
+    auto sliderBounds = getSliderBounds();
+    
+    getLookAndFeel().drawRotarySlider(g, sliderBounds.getX(),
+                                      sliderBounds.getY(),
+                                      sliderBounds.getWidth(),
+                                      sliderBounds.getHeight(),
+                                      jmap(getValue(),range.getStart(), range.getEnd(), 0.0, 1.0), startAng,
+                                      endAng, *this);
+    
+}
+
+juce::Rectangle<int> RotarySliderWithLabels::getSliderBounds() const
+{
+    return getLocalBounds();
+}
+
+//=======
+
 ResponseCurveComponent::ResponseCurveComponent(SimpleEQMacAudioProcessor& p) : audioProcessor(p)
 {
     const auto& params = audioProcessor.getParameters();
