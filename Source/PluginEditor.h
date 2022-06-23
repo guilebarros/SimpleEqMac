@@ -68,6 +68,7 @@ juce::Timer
     void parameterGestureChanged (int parameterIndex, bool gestureStarting) override {};
     void timerCallback() override;
     void paint(juce::Graphics& g) override;
+    void resized() override;
 
 private:
     SimpleEQMacAudioProcessor& audioProcessor;
@@ -79,6 +80,12 @@ private:
        , quando da abertura do plugin
     */
     void updateChain();
+    
+    // funçoes relativas ao desenho do grid
+    juce::Image background;
+    juce::Rectangle<int> getRenderArea();
+    
+    juce::Rectangle<int> getAnalysisArea();
 
     
 };
