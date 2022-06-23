@@ -74,13 +74,17 @@ private:
     juce::Atomic<bool> parametersChanged { false };
     
     MonoChain monoChain;
+    
+    /* funçao que atualiza a curve de resposta caso haja parâmetros salvos
+       , quando da abertura do plugin
+    */
+    void updateChain();
 
     
 };
 
 //==============================================================================
-/**
-*/
+
 class SimpleEQMacAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
 public:
