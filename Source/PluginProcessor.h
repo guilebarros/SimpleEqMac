@@ -1,14 +1,13 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include <JuceHeader.h>
+
+enum Channel
+{
+    Right, // efetivanente 0
+    Left   // efetivamente 1
+};
+
 
 enum Slope
 {

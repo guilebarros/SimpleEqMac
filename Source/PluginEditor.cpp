@@ -1,11 +1,3 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -78,10 +70,6 @@ void RotarySliderWithLabels::paint(juce::Graphics &g)
     
     auto sliderBounds = getSliderBounds();
     
-//    g.setColour(Colours::red);
-//    g.drawRect(getLocalBounds());
-//    g.setColour(Colours::yellow);
-//    g.drawRect(sliderBounds);
     
     getLookAndFeel().drawRotarySlider(g, sliderBounds.getX(),
                                       sliderBounds.getY(),
@@ -397,6 +385,19 @@ void ResponseCurveComponent::resized()
             
             g.setColour( gDb == 0.f ? Colour(0u, 172u, 1u) : Colours::lightgrey );
             g.drawFittedText(str, r, juce::Justification::centred, 1);
+            
+            // escala da esquerda para o analisador (ganho em dB)
+            
+            str.clear();
+            str << (gDb - 24.f);
+            
+            r.setX(1);
+            textWidth = g.getCurrentFont().getStringWidth(str);
+            r.setSize(textWidth, fontHeight);
+            g.setColour(Colours::lightgrey);
+            g.drawFittedText(str, r, juce::Justification::centred, 1);
+            
+            
         }
             
     }
@@ -443,9 +444,7 @@ highCutSlopeSliderAttachment(audioProcessor.apvts, "HighCut Slope", highCutSlope
 
 
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    
+
     // labels (minimo e máximo) dos sliders
     
     peakFreqSlider.labels.add({0.f, "20Hz"});
